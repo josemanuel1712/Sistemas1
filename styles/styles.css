@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap');
+
+/*
+font-family: 'Bangers', cursive;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+/*--- GENERALIDADES ---*/
+html{
+    box-sizing: border-box; /**Hace que las cajas respeten el tamaño que se les asigne**/
+    font-size: 62.5%; /**Establece que 1rem = 10px**/
+
+    scroll-behavior: smooth;
+}
+*,*::after,*::before{
+    box-sizing: inherit; /** Hace que todas las cajas tengan el box-sizing especificado en la linea 2 **/
+}
+
+body{
+    color: #ffffff;
+}
+
+h1, h2{
+    font-family: 'Bangers', cursive;
+    letter-spacing: 3px;
+}
+
+img{
+    width: 100%;
+}
+
+
+
+/*--- UTILIDADES ---*/
+.container{
+    width: 90vw;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+
+/*--- CABEZERA ---*/
+header{
+    width: 100%;
+    padding: 1rem 30px;
+    background-color: rgba(74, 45, 100, 0.4);
+
+
+    position: fixed;
+    z-index: 15;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*-- Logo --*/
+.logo{
+    color: #ffffff;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 4rem;
+    margin-right: 1rem;
+}
+.logo span{
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+}
+
+
+/*-- Navegación --*/
+nav{
+    width: 35%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav a{
+
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.link_odd{
+    padding: 5px 20px;
+    border: solid 0.2rem #ffffff;
+}
+
+@media (max-width: 650px){
+    nav{
+        display: none;
+    }
+}
+
+
+/*--- HERO ---*/
+.hero{
+    height: 100vh;
+
+    /* margin-right: 5rem; */
+
+    background-image: url("../images/hero.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .container{
+    height: 100%;
+
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #0000009d;
+
+    display: flex;
+    align-items: center;
+}
+.hero span{
+    font-size: 6rem;
+    font-weight: 100;
+    font-style: italic;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+@media (max-width:550px){
+    .hero .container{
+        font-size: 3rem;
+    }
+    .hero span{
+        font-size: 5rem;
+    }
+}
+
+@media (max-width:400px){
+    .hero .container{
+        font-size: 2rem;
+    }
+    .hero span{
+        font-size: 5rem;
+    }
+}
+
+
+
+/*--- DESCRIPCIÓN ---*/
+main{
+    background: linear-gradient(to bottom, #2E0D42 0%, #6E2496 100%);
+    padding: 30px;
+}
+
+main h2{
+    width: fit-content;
+    margin: 50px auto;
+    font-size: 60px;
+    border-bottom: solid 2px #ffffff;
+}
+
+main p{
+    margin: 5rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.7;
+}
+
+/*-- Tarjetas --*/
+.carts{
+    width: 100%;
+
+    display: flex;
+    gap: 5rem;
+}
+
+.cart_item{
+    background-color: #7b349c;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition:all 0.2s;
+}
+
+.cart_item::after{
+    content: "";
+    width: 100%;
+    height: 1rem;
+
+    background-color: #ffffff;
+    box-shadow: 0 0 7px #ffffffc2;
+
+    position: absolute;
+    bottom: 0;
+    display: block;
+    
+    transition:all 0.2s;
+}
+
+.cart_item:hover{
+    transform: scale(105%);
+    translate: -18px -18px;
+    box-shadow: 12px 12px 3px #00000048;
+}
+.cart_item:hover.cart_item::after{
+    background-color: #facb4b;
+    box-shadow: 0 0 7px #ffd900d0;
+}
+
+.cart_item ul{
+    padding: 0;
+
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2rem;
+    line-height: 2;
+    text-align: center;
+}
+
+.cart_item img{
+    width: 80%;
+    margin: 1.5rem
+}
+
+@media (max-width: 650px){
+    .carts{
+        width: 85%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .cart_item img{
+        width: 60%;
+    }
+
+    .cart_item:hover{
+        transform: scale(97%);
+        translate: 0;
+        box-shadow: 0 0 7px #ffd900d0;
+    }
+}
+
+
+/*--- DATOS ---*/
+.datos{
+    background-image: linear-gradient(to bottom, #39124ed8 0%, #39124Ed8 100%)
+    ,url("../images/datos_bg.png");
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+}
+
+.datos_cart{
+    width: 80rem;
+    height: 50rem;
+
+    margin: 5rem 5rem 4rem 2rem;
+    padding: 4rem;
+    border-radius: 2rem;
+
+    box-shadow: 60px -30px 0 #6E2496;
+
+    background-size: cover;
+    background-image: url("../images/datos_cart.png");
+
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    position: relative;
+    z-index: 10;
+}
+
+.datos h2{
+    margin: 2rem 0;
+
+    font-size: 7rem;
+    text-shadow: 2px 2px 4px #00000057;
+}
+
+.datos_content{
+    width: 50%;
+
+    font-size: 2.3rem;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+}
+
+.datos_content h3{
+    text-transform: uppercase;
+    margin: 4rem 0 0;
+    font-weight: 100;
+}
+
+.datos_content h3:first-child{
+    margin: 0;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.datos_content p{
+    margin: 0;
+}
+
+@media (max-width: 750px){
+    .datos_cart{
+        width: 40rem;
+        height: auto;
+
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px){
+    .datos_cart{
+        width: 35rem;
+        margin: 4rem auto;
+        padding: 4rem 0rem;
+        box-shadow: none;
+    }
+
+    .datos h2{    
+        font-size: 6rem;
+    }
+}
+
+/*--- FOOTER ---*/
+footer{
+    padding: 1rem ;
+    background-color: #6E2496;
+}
+
+footer .container{
+    font-size: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.copy img{
+    width: 3rem;
+    display: inline-block;
+}
+
+.social{
+    display: flex;
+    gap: 3rem;
+}
+
+.social a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+.social_santiago a{
+    color: #facb4b;
+}
